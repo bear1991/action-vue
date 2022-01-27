@@ -26,7 +26,7 @@ jobs:
 # 使用不同的actions工具进行文件上传到开发服务器
 # 直接将dist目录中所有文件上传到actions-vue目录中
 #      - name: SSH Server Deploy
-#        uses: kostya-ten/ssh-server-deploy@v4
+#        uses: kostya-ten/ssh-server-deploy@v4  #参考：https://github.com/marketplace/actions/ssh-server-deploy
 #        with:
 #          host: ${{ secrets.HOST }}
 #          port: ${{ secrets.PORT }}
@@ -37,7 +37,7 @@ jobs:
 
 # 直接将dist目录中所有文件上传到actions-vue目录中
       - name: deploy package
-        uses: appleboy/scp-action@master
+        uses: appleboy/scp-action@master #(推荐)参考：https://github.com/marketplace/actions/scp-files
         with:
           host: ${{ secrets.HOST }}
           port: ${{ secrets.PORT }}
@@ -45,4 +45,4 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           source: ./dist/*
           target: /usr/local/app/actions-vue/
-          strip_components: 1 # 设置删除资源路径前缀，不设置时则dist整个目录会被上传到actions-vue中
+          strip_components: 1 # 设置删除资源路径前缀(dist)，不设置时则dist整个目录会被上传到actions-vue中

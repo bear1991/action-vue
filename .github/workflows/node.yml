@@ -32,4 +32,6 @@ jobs:
           port: ${{ secrets.PORT }}
           local: './dist/*'
           remote: /usr/local/app/actions-vue/
+          scp: |
+            ./dist/* => "/usr/local/app/actions-vue/"
 

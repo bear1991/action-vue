@@ -37,9 +37,9 @@ jobs:
       - name: deploy package
         uses: appleboy/scp-action@master
         with:
-          source: './dist/*'
-          target: '/usr/local/app/actions-vue'
           host: ${{ secrets.HOST }}
           port: ${{ secrets.PORT }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
+          source: ./dist/*
+          target: /usr/local/app/actions-vue/

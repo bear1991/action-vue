@@ -24,10 +24,15 @@ jobs:
           npm run build:test --if-present
 
       - name: deploy package
-        uses: garygrossgarten/github-action-scp@release
+        uses: mdallasanta/ssh-scp-deploy@1.1.0
         with:
-          local: dist
-          remote: /usr/local/app/actions-vue/dist
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
+          local: './dist/'                                             # Local file path - REQUIRED false - DEFAULT ./
+          remote: '/usr/local/app/actions-vue/'                        # Remote file path - REQUIRED false - DEFAULT ~/
+          host: ${{secrets.HOST}}                                      # Remote server address - REQUIRED true
+          port: ${{secrets.PORT}}                                      # Remote server port - REQUIRED false - DEFAULT 22
+          user: ${{secrets.USERNAME}}                                      # Remote server user - REQUIRED true
+          password: ${{secrets.PASSWORD}}                              # User password - REQUIRED at least one of "password" or "key"
+          pre_upload: echo "This will be executed before the upload!"  # Command to run via ssh before scp upload - REQUIRED false
+          post_upload: echo "This will be executed after the upload!"  # Command to run via ssh after scp upload - REQUIRED false
+          ssh_options: -o StrictHostKeyChecking=no                     # A set of ssh_option separated by -o - REQUIRED false - DEFAULT -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
+          scp_options: -v

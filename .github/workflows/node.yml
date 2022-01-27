@@ -22,4 +22,4 @@ jobs:
         run: |
           npm install
           npm run build:test --if-present
-          whereis dist
+          cd dist

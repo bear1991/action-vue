@@ -42,4 +42,15 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           source: ./dist/*
-          target: /usr/local/app/actions-vue/
+          target: /usr/local/app/actions-vue
+
+
+#      - name: deploy package
+#        uses: cross-the-world/scp-pipeline@master
+#        with:
+#          host: ${{ secrets.HOST }}
+#          port: ${{ secrets.PORT }}
+#          username: ${{ secrets.USERNAME }}
+#          password: ${{ secrets.PASSWORD }}
+#          local: ./dist/*
+#          remote: /usr/local/app/actions-vue/

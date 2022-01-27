@@ -35,24 +35,25 @@ jobs:
 #          scp_source: ./dist/*
 #          scp_target: /usr/local/app/actions-vue/
 
-      - name: deploy package
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          port: ${{ secrets.PORT }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          source: ./dist/*
-          target: /usr/local/app/actions-vue/
-          strip_components: 1
-
-
+# 直接将dist目录中所有文件上传到actions-vue目录中
 #      - name: deploy package
-#        uses: cross-the-world/scp-pipeline@master
+#        uses: appleboy/scp-action@master
 #        with:
 #          host: ${{ secrets.HOST }}
 #          port: ${{ secrets.PORT }}
 #          username: ${{ secrets.USERNAME }}
 #          password: ${{ secrets.PASSWORD }}
-#          local: ./dist/*
-#          remote: /usr/local/app/actions-vue/
+#          source: ./dist/*
+#          target: /usr/local/app/actions-vue/
+#          strip_components: 1 # 设置删除资源路径前缀，不设置时则dist整个目录会被上传到actions-vue中
+
+# 直接将dist目录中所有文件上传到actions-vue目录中
+      - name: deploy package
+        uses: cross-the-world/scp-pipeline@master
+        with:
+          host: ${{ secrets.HOST }}
+          port: ${{ secrets.PORT }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          local: ./dist/*
+          remote: /usr/local/app/actions-vue/

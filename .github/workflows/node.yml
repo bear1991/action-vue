@@ -25,7 +25,7 @@ jobs:
 
 
       - name: deploy package
-        uses: garygrossgarten/github-action-scp@release
+        uses: horochx/deploy-via-scp@master
         with:
           local: dist/*
           remote: /usr/local/app/actions-vue/*

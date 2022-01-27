@@ -25,10 +25,10 @@ jobs:
 
 
       - name: deploy package
-        uses: hengkx/ssh-deploy@v1.0.1
+        uses: garygrossgarten/github-action-scp@release
         with:
-          USERNAME: ${{ secrets.USERNAME }}
-          PASSWORD: ${{ secrets.PASSWORD }}
-          HOST: ${{ secrets.HOST }}
-          SOURCE: 'dist'
-          TARGET: '/usr/local/app/actions-vue'
+          local: dist/
+          remote: /usr/local/app/actions-vue/
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}

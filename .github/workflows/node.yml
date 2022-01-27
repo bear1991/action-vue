@@ -22,7 +22,7 @@ jobs:
         run: |
           npm install
           npm run build:test --if-present
-          tar -zxvf release.tar dist
+          tar -zcvf release.tgz dist
 
       - name: deploy package
         uses: garygrossgarten/github-action-scp@release
@@ -40,7 +40,7 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           script: |
-            cd /usr/local/app/actions
+            cd /usr/local/app/actions-vue
             rm -rf dist
-            tar zxvf release.tgz
+            tar -zxvf release.tgz
             rm -f release.tgz

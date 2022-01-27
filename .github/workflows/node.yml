@@ -24,12 +24,12 @@ jobs:
           npm run build:test --if-present
 
       - name: deploy package
-        uses: nogsantos/scp-deploy@master
+        uses: cross-the-world/scp-pipeline@master
         with:
-          src: ./dist/*
-          remote: /usr/local/app/actions-vue
           host: ${{ secrets.HOST }}
-          port: ${{ secrets.PORT }}
           user: ${{ secrets.USERNAME }}
-          key: ${{ secrets.ACTIONS_TOKEN }}
+          pass: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          local: './dist/*'
+          remote: /usr/local/app/actions-vue/
 

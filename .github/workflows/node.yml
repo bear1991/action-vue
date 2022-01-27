@@ -23,12 +23,21 @@ jobs:
           npm install
           npm run build
 
-      - name: SSH Server Deploy
-        uses: kostya-ten/ssh-server-deploy@v4
+#      - name: SSH Server Deploy
+#        uses: kostya-ten/ssh-server-deploy@v4
+#        with:
+#          host: ${{ secrets.HOST }}
+#          port: ${{ secrets.PORT }}
+#          username: ${{ secrets.USERNAME }}
+#          password: ${{ secrets.PASSWORD }}
+#          scp_source: ./dist/*
+#          scp_target: /usr/local/app/actions-vue/
+
+      - name: deploy package
+        uses: garygrossgarten/github-action-scp@release
         with:
+          local: ./dist/*
+          remote: /usr/local/app/actions-vue/
           host: ${{ secrets.HOST }}
-          port: ${{ secrets.PORT }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          scp_source: ./dist/*
-          scp_target: /usr/local/app/actions-vue/

@@ -26,8 +26,8 @@ jobs:
       - name: deploy package
         uses: garygrossgarten/github-action-scp@release
         with:
-          local: dist/
-          remote: /usr/local/app/actions-vue/
+          local: dist/**
+          remote: /usr/local/app/actions-vue/**
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}

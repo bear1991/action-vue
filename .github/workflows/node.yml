@@ -25,10 +25,10 @@ jobs:
 
 
       - name: deploy package
-        uses: horochx/deploy-via-scp@master
+        uses: nogsantos/scp-deploy@master
         with:
-          local: dist/*
-          remote: /usr/local/app/actions-vue/*
+          local: ./dist/*
+          remote: /usr/local/app/actions-vue
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}

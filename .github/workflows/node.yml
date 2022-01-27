@@ -40,5 +40,6 @@ jobs:
           source: './dist/*'
           target: '/usr/local/app/actions-vue'
           host: ${{ secrets.HOST }}
+          port: ${{ secrets.PORT }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}

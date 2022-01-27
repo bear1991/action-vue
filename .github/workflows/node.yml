@@ -24,14 +24,10 @@ jobs:
           npm run build:test --if-present
 
       - name: deploy package
-        uses: cross-the-world/scp-pipeline@master
+        uses: garygrossgarten/github-action-scp@release
         with:
+          local: dist
+          remote: /usr/local/app/actions-vue/dist
           host: ${{ secrets.HOST }}
-          user: ${{ secrets.USERNAME }}
-          pass: ${{ secrets.PASSWORD }}
-          port: ${{ secrets.PORT }}
-          local: './dist/*'
-          remote: /usr/local/app/actions-vue/
-          scp: |
-            ./dist/* => "/usr/local/app/actions-vue/"
-
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}

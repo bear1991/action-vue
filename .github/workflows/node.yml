@@ -41,8 +41,8 @@ jobs:
           port: ${{ secrets.PORT }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          source: ./dist/*
-          target: /usr/local/app/actions-vue
+          source: './dist/*'
+          target: '/usr/local/app/actions-vue'
 
 
 #      - name: deploy package

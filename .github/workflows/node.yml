@@ -23,7 +23,7 @@ jobs:
         run: |
           npm install
           npm run build
-          tar -zcvf release.tgz dist
+          tar -zcvf release.tgz ./dist/
 
       - name: deploy package
         uses: garygrossgarten/github-action-scp@release
@@ -44,4 +44,3 @@ jobs:
               cd /usr/local/app/actions-vue
               rm -rf dist
               tar -zxvf release.tgz
-

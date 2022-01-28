@@ -29,7 +29,8 @@ jobs:
         uses: garygrossgarten/github-action-scp@release
         with:
           local: release.tgz
-          remote: /usr/local/app/actions-vue/release.tgz
+#          remote: /usr/local/app/actions-vue/release.tgz
+          remote: /usr/local/nginx/html/actions-vue/release.tgz
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
@@ -42,7 +43,8 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           script: |
-            cd /usr/local/app/actions-vue
+#            cd /usr/local/app/actions-vue
+            cd /usr/local/nginx/html/actions-vue
             if [[ ! -d 'dist' ]]; then
               echo "dist文件夹不存在"
             else

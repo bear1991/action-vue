@@ -24,3 +24,12 @@ jobs:
           npm install
           npm run build
           tar -zcvf release.tgz dist
+
+      - name: deploy package
+        uses: garygrossgarten/github-action-scp@release
+        with:
+          local: release.tgz
+          remote: /usr/local/app/actions-vue/release.tgz
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}

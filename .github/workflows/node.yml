@@ -23,24 +23,4 @@ jobs:
         run: |
           npm install
           npm run build
-#          tar -zcvf release.tgz ./dist/
-#
-#      - name: deploy package
-#        uses: garygrossgarten/github-action-scp@release
-#        with:
-#          local: release.tgz
-#          remote: /usr/local/app/actions-vue/release.tgz
-#          host: ${{ secrets.HOST }}
-#          username: ${{ secrets.USERNAME }}
-#          password: ${{ secrets.PASSWORD }}
-#        - name: start package
-#          uses: appleboy/ssh-action@master
-#          with:
-#            host: ${{ secrets.HOST }}
-#            username: ${{ secrets.USERNAME }}
-#            password: ${{ secrets.PASSWORD }}
-#            port: ${{ secrets.PORT }}
-#            script: |
-#              cd /usr/local/app/actions-vue
-#              rm -rf dist
-#              tar -zxvf release.tgz
+          tar -zcvf release.tgz ./dist/
